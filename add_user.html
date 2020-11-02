@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>用户信息提交</title>
+</head>
+<body>
+<form action="http://127.0.0.1:5000/posts" method="post" onsubmit="return beforeSubmit()">
+    工号：<input id="id" type="text" name="id" />
+    姓名: <input id="name" type="text" name="name" />
+    生日：<input id="birtyday" type="datetime-local" name="birthday" />
+    <input type="submit" value="提交" />
+</form>
+<script type="text/javascript">
+    function beforeSubmit() {
+        var check_id = document.getElementById('id').value;
+        var check_name = document.getElementById('name').value;
+        var reg = /^\d{1,10}$/;       //判断是否为10位数字的正则表达式
+        //if (!reg.test(check_id) || check_id > 2147483647) {
+        if (1 != 1) {
+            alert("工号请输入1-10位且最大为2147483647的数字");
+            return false;
+        }
+        else if (check_name.length > 100) {
+            alert('姓名应小于20');
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+</script>
+</body>
+</html>
